@@ -1,0 +1,43 @@
+{
+    "name": "amin3520/anar",
+    "description": ":description",
+    "license": "MIT License",
+    "authors": [
+        {
+            "name": "amin3536",
+            "email": "am.a9173@gmail.com",
+            "homepage": "https://github.com/amin3536"
+        }
+    ],
+    "homepage": "https://github.com/amin3520/anar",
+    "keywords": ["Laravel", "Anar"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "amin3520\\Anar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "amin3520\\Anar\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "amin3520\\Anar\\AnarServiceProvider"
+            ],
+            "aliases": {
+                "Anar": "amin3520\\Anar\\Facades\\Anar"
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Providers;
+
+use App;
+use Illuminate\Support\ServiceProvider;
+
+class RepositoryServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+
+    /**
+     * Register RepositoryServiceProvider  .
+     * provide your repository and inject it, like in to your controller's app if you want to use it
+     * @return void
+     */
+    public function register()
+    {
+         $names = [
+                'User',
+               //add Begin your repository name here
+            ];
+
+            foreach ($names as $model) {
+                $this->app->bind(
+                    "App\\Repositories\\{$model}RepositoryImp",
+                    "App\\Repositories\\{$model}Repository");
+            }
+
+
+    }
+}
