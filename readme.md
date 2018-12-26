@@ -46,9 +46,11 @@ first run of command create base files and directory ,you can see them below
 |       |//and other your repoitorys
 ```
 
+
 ##Configuration
 if you want inject your repositories in some constructor like controllers ,add repo name 
 in ```$names``` in ```Providers/RepositoryServiceProvider.php```
+
 
 ##Usage
 ```php
@@ -73,6 +75,7 @@ class Controller extends BaseController
     }
 }
 ```
+
 
 ##BaseMethods
 Base repository has some useful method read them 
