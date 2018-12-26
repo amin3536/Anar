@@ -25,14 +25,13 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
          $names = [
-                'User',
-               //add Begin your repository name here
+               //add Begin your repository name here   like -> 'UserRepository',
             ];
 
-            foreach ($names as $model) {
+            foreach ($names as $name) {
                 $this->app->bind(
-                    "App\\Repositories\\{$model}RepositoryImp",
-                    "App\\Repositories\\{$model}Repository");
+                    "App\\Repositories\\{$name}", pro
+                    "App\\Repositories\\{$name}");
             }
 
 
