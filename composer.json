@@ -10,7 +10,7 @@
         }
     ],
     "homepage": "https://github.com/amin3520/anar",
-    "keywords": ["Laravel", "Anar"],
+    "keywords": ["Laravel", "Anar","repository"],
     "require": {
         "illuminate/support": "~5"
     },
@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "amin3520\\Anar\\Tests\\": "tests"
+            "amin3520\\Anar\\Tests\\": "tests/"
         }
     },
     "extra": {

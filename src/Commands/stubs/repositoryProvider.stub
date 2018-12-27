@@ -30,7 +30,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
             foreach ($names as $name) {
                 $this->app->bind(
-                    "App\\Repositories\\{$name}", pro
+                    "App\\Repositories\\{$name}",
                     "App\\Repositories\\{$name}");
             }
 
