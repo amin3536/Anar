@@ -5,7 +5,9 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-Anar is artisan command to create fast repository for your amazing app . Take a look at [contributing.md](contributing.md) to see a to do list.
+Anar is artisan command to create  repository for your amazing laravel app easy peasy . Take look at [contributing.md](contributing.md) to see a to do list.
+
+if you don't know about Repository pattern read [this link](https://medium.com/employbl/use-the-repository-design-pattern-in-a-laravel-application-13f0b46a3dce)
 
 ## Installation
 
@@ -102,7 +104,7 @@ class Controller extends BaseController
 
 ## _BaseMethods_
 
-Base repository has some useful method you can use theme  s
+Base repository has some useful method you can use theme
 ```php
 interface BaseRepositoryImp
 {
@@ -150,5 +152,5 @@ MIT License. Please see the [license file](license.md) for more information.
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/amin3520
 [link-contributors]: ../../contributors]
-[methods]:https://imgur.com/a/dW7rUnr
+[methods]:http://s9.picofile.com/file/8347045218/explain_1.jpg
 
