@@ -53,6 +53,7 @@ first run of command create base files and directory ,you can see them below
 
 if you want inject your repositories in some constructor like controllers ,add repo name 
 in ```$names``` in ```Providers/RepositoryServiceProvider.php```
+and add ``\App\Providers\RepositoryServiceProvider::class`` in ``providers`` in ``config\app.php``
 
 ```php
   /**
