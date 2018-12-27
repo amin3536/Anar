@@ -24,13 +24,13 @@ Please see the [changelog](changelog.md) for more information on what has change
 
 ``` bash
 $ php artisan make:repository name  --m=model_name --imp 
- #sample php artisan make:repository UserRepository --m=User --im
+ #sample php artisan make:repository UserRepository --m=User --imp
 ```
 ```  name ``` is your name Repository ,
 
 ```  --m ```option is  model name that use in repo and it is necessary input
 
-```  --im ``` create interface for your repo
+```  --imp ``` create interface for your repo
 
 
 first run of command create base files and directory ,you can see them below
@@ -47,13 +47,34 @@ first run of command create base files and directory ,you can see them below
 ```
 
 
-##Configuration
+### _Configuration_
 
 if you want inject your repositories in some constructor like controllers ,add repo name 
 in ```$names``` in ```Providers/RepositoryServiceProvider.php```
 
+```php
+  /**
+     * Register RepositoryServiceProvider  .
+     * provide your repository and inject it any where below your app directoy, like in to your controller's app if you want to use it
+     * @return void
+     */
+    public function register()
+    {
+         $names = [
+               //add Begin your repository name here   like -> 'UserRepository',
+            ];
 
-##Usage
+            foreach ($names as $name) {
+                $this->app->bind(
+                    "App\\Repositories\\{$name}", pro
+                    "App\\Repositories\\{$name}");
+            }
+
+
+    }
+```
+
+### _Usage_
 
 ```php
 class Controller extends BaseController
@@ -79,14 +100,39 @@ class Controller extends BaseController
 ```
 
 
-##BaseMethods
+## _BaseMethods_
 
-Base repository has some useful method read them 
+Base repository has some useful method you can use theme  s
+```php
+interface BaseRepositoryImp
+{
+    public function create(array $attributes);
+    public function update(array $attributes, int $id);
+    public function all($columns = array('*'), string $orderBy = 'id', string $sortBy = 'desc');
+    public function find(int $id);
+    public function findOneOrFail(int $id);
+    public function findBy(array $data);
+    public function findOneBy(array $data);
+    public function findOneByOrFail(array $data);
+    public function paginateArrayResults(array $data, int $perPage = 50);
+    public function delete(int $id);
+}
+```
 ![methods][methods]
+
 
 ## Contributing
 
 Please see [contributing.md](contributing.md) for details and a todolist.
+
+
+## Task list:
+
+- [ ] add Test 
+- [ ] add dynamic directory option 
+- [ ] add dynamic directory for pickUp mode
+
+
 
 
 ## License
