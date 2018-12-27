@@ -5,7 +5,9 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-Anar is artisan command to create fast repository for your amazing app . Take a look at [contributing.md](contributing.md) to see a to do list.
+Anar is artisan command to create  repository for your amazing laravel app easy peasy . Take a look at [contributing.md](contributing.md) to see a to do list.
+
+if you don't no about Repository pattern read [this link](https://medium.com/employbl/use-the-repository-design-pattern-in-a-laravel-application-13f0b46a3dce)
 
 ## Installation
 
