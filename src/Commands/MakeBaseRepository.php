@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: a.mir
- * Date: 23/12/2018
- * Time: 09:36 AM
- */
-
 namespace amin3520\Anar\Commands;
 
 
