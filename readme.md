@@ -26,11 +26,13 @@ Please see the [changelog](changelog.md) for more information on what has change
 
 ``` bash
 $ php artisan make:repository name  --m=model_name --imp 
- #sample php artisan make:repository UserRepository --m=User --imp
+  #sample php artisan make:repository UserRepository --m=User --imp 
+  #sample2 php artisan make:repository UserRepository --m='\App\User' --imp 
+
 ```
 ```  name ``` is your name Repository ,
 
-```  --m ```option is  model name that use in repo and it is necessary input
+```  --m ```option is  model name that use in repo and it is necessary input , now u can also  pass your address model in string like '\App\User'
 
 ```  --imp ``` create interface for your repo
 
@@ -69,7 +71,7 @@ and add ``\App\Providers\RepositoryServiceProvider::class`` in ``providers`` in 
 
             foreach ($names as $name) {
                 $this->app->bind(
-                    "App\\Repositories\\{$name}", pro
+                    "App\\Repositories\\{$name}",
                     "App\\Repositories\\{$name}");
             }
 
@@ -133,7 +135,8 @@ Please see [contributing.md](contributing.md) for details and a todolist.
 
 - [ ] add Test 
 - [ ] add dynamic directory option 
-- [ ] add dynamic directory for pickUp mode
+- [x] add dynamically pickUp model 
+- [ ] add cache option 
 
 
 
