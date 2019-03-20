@@ -68,12 +68,19 @@ class MakeRepositoryCommand extends GeneratorCommand
             throw new InvalidArgumentException("Model name is required.\n make:repository RepositoryClassName --m=ModelClass --imp");
         }
 
-
-        $stub = str_replace(
-            ['DummyModel'],
-            [$this->option('m')],
-            $stub
-        );
+        if (strstr($this->option('m'),'\\') ){
+            $stub = str_replace(
+                ['DummyModel'],
+                [ $this->option('m')],
+                $stub
+            );
+        }else{
+            $stub = str_replace(
+                ['DummyModel'],
+                ['\\App\\' . $this->option('m')],
+                $stub
+            );
+        }
 
         return parent::replaceNamespace($stub, $name); //
     }

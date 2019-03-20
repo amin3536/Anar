@@ -2,7 +2,7 @@
 
 namespace DummyNamespace;
 
-use App\DummyModel;
+
 
 class DummyClass extends BaseRepository implements DummyClassImp
 {
@@ -13,6 +13,7 @@ class DummyClass extends BaseRepository implements DummyClassImp
            */
         public function __construct(DummyModel $model)
         {
-            $this->model=$model;
+              parent::__construct($this->model);
+
         }
 }
