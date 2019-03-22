@@ -2,9 +2,8 @@
 
 namespace amin3520\Anar\Commands;
 
-
-use Illuminate\Console\GeneratorCommand;
 use InvalidArgumentException;
+use Illuminate\Console\GeneratorCommand;
 
 class MakeRepositoryCommand extends GeneratorCommand
 {
@@ -35,7 +34,6 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected $type = 'Repository';
 
-
     /**
      * Get the stub file for the generator.
      *
@@ -43,7 +41,7 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/stubs/repository.stub';
+        return __DIR__.'/stubs/repository.stub';
     }
 
     /**
@@ -55,27 +53,25 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Repositories';
+        return $rootNamespace.'\Repositories';
     }
-
 
     protected function replaceNamespace(&$stub, $name)
     {
-        if (!$this->option('m')) {
-
+        if (! $this->option('m')) {
             throw new InvalidArgumentException("Model name is required.\n make:repository RepositoryClassName --m=ModelClass --imp");
         }
 
-        if (strstr($this->option('m'),'\\') ){
+        if (strstr($this->option('m'), '\\')) {
             $stub = str_replace(
                 ['DummyModel'],
-                [ $this->option('m')],
+                [$this->option('m')],
                 $stub
             );
-        }else{
+        } else {
             $stub = str_replace(
                 ['DummyModel'],
-                ['\\App\\' . $this->option('m')],
+                ['\\App\\'.$this->option('m')],
                 $stub
             );
         }
@@ -83,31 +79,28 @@ class MakeRepositoryCommand extends GeneratorCommand
         return parent::replaceNamespace($stub, $name); //
     }
 
-
     protected function getNamespace($name)
     {
         return parent::getNamespace($name);
     }
-
 
     protected function buildClass($name)
     {
         return parent::buildClass($name);
     }
 
-
     public function handle()
     {
         if ($this->option('imp')) {
             $this->createImp();
         }
-        if (!file_exists(trim($this->rootNamespace(), '\\') . '\\' . 'Repositories' . '\\' . 'BaseRepository.php')) {
+        if (! file_exists(trim($this->rootNamespace(), '\\').'\\'.'Repositories'.'\\'.'BaseRepository.php')) {
             $this->createBaseRepo();
         }
-        if (!file_exists(trim($this->rootNamespace(), '\\') . '\\' . 'Repositories' . '\\' . 'BaseRepositoryImp.php')) {
+        if (! file_exists(trim($this->rootNamespace(), '\\').'\\'.'Repositories'.'\\'.'BaseRepositoryImp.php')) {
             $this->createBaseRepoImp();
         }
-        if (!file_exists(trim($this->rootNamespace(), '\\') . '\\' . 'Providers' . '\\' . 'RepositoryServiceProvider.php')) {
+        if (! file_exists(trim($this->rootNamespace(), '\\').'\\'.'Providers'.'\\'.'RepositoryServiceProvider.php')) {
             $this->createRepoServiceProvider();
         }
 
@@ -121,35 +114,31 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected function createImp()
     {
-
         $this->call('make:RepositoryImp', [
-            'name' => $this->argument('name') . 'Imp'
+            'name' => $this->argument('name').'Imp',
         ]);
     }
 
     /**
-     * Create  BaseRepository
+     * Create  BaseRepository.
      * @return void
      */
     protected function createBaseRepo()
     {
         $this->call('make:baseRepository', [
-            'name' => 'BaseRepository'
+            'name' => 'BaseRepository',
         ]);
-
-
     }
 
     /**
-     * Create  BaseRepositoryImp
+     * Create  BaseRepositoryImp.
      * @return void
      */
     public function createBaseRepoImp()
     {
         $this->call('make:baseRepositoryImp', [
-            'name' => 'BaseRepositoryImp'
+            'name' => 'BaseRepositoryImp',
         ]);
-
     }
 
     /**
@@ -158,12 +147,8 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     public function createRepoServiceProvider()
     {
-
         $this->call('make:repositoryServiceProvider', [
-            'name' => 'repositoryServiceProvider'
+            'name' => 'repositoryServiceProvider',
         ]);
-
     }
-
-
 }
