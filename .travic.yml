@@ -1,5 +1,6 @@
 language: php
 
+
 php:
   - 7.0
   - 7.1
@@ -9,8 +10,8 @@ matrix:
   fast_finish: true
 
 before_script:
-  - travis_retry composer self-update
-  - travis_retry composer install --prefer-source --no-interaction
+  - composer self-update
+  - composer install --prefer-source --no-interaction
 
 script:
-  - phpunit
+  - vendor/bin/phpunit
