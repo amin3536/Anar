@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
+[![Build Status](https://travis-ci.org/amin3536/Anar.svg?branch=master)](https://travis-ci.org/amin3536/Anar)
 [![StyleCI](https://github.styleci.io/repos/163210230/shield?branch=master)](https://github.styleci.io/repos/163210230)
 
 
