@@ -3,7 +3,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
+[![StyleCI](https://github.styleci.io/repos/163210230/shield?branch=master)](https://github.styleci.io/repos/163210230)
 
 Anar is artisan command to create  repository for your amazing laravel app easy peasy . Take look at [contributing.md](contributing.md) to see a to do list.
 
