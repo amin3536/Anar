@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * Created by PhpStorm.
  * User: amin
@@ -6,7 +8,16 @@
  * Time: 11:25 PM
  */
 
-class Tests
+class Tests extends \PHPUnit\Framework\TestCase
 {
 
+    /**
+     * A basic test example.
+     *
+     * @return void
+     */
+    public function testExample()
+    {
+        $this->assertTrue(true);
+    }
 }
