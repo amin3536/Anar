@@ -1,6 +1,6 @@
 <?php
-namespace amin3520\Anar\Commands;
 
+namespace amin3520\Anar\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
@@ -40,16 +40,11 @@ class MakeBaseRepository extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/stubs/BaseRepository.stub';
+        return __DIR__.'/stubs/BaseRepository.stub';
     }
 
-
-
-    protected function getDefaultNamespace($rootNamespace) {
-
+    protected function getDefaultNamespace($rootNamespace)
+    {
         return $rootNamespace.'\Repositories';
     }
-
-
-
 }
