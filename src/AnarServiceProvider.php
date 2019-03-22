@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class AnarServiceProvider extends ServiceProvider
 {
-
     protected $commands = [
         'amin3520\Anar\Commands\MakeBaseRepository',
         'amin3520\Anar\Commands\MakeBaseRepositoryImp',
@@ -14,6 +13,7 @@ class AnarServiceProvider extends ServiceProvider
         'amin3520\Anar\Commands\MakeRepositoryCommand',
         'amin3520\Anar\Commands\MakeRepositoryImpCommand',
     ];
+
     /**
      * Perform post-registration booting of services.
      *
@@ -57,7 +57,7 @@ class AnarServiceProvider extends ServiceProvider
     {
         return ['anar'];
     }
-    
+
     /**
      * Console-specific booting.
      *
