@@ -6,7 +6,6 @@ namespace DummyNamespace;
 
 class DummyClass extends BaseRepository implements DummyClassImp
 {
-     protected $model;
       /**
            * UserRepository constructor.
            * @param DummyModel $model
