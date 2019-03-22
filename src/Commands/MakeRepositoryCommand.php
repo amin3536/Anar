@@ -4,8 +4,6 @@ namespace amin3520\Anar\Commands;
 
 
 use Illuminate\Console\GeneratorCommand;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 use InvalidArgumentException;
 
 class MakeRepositoryCommand extends GeneratorCommand
