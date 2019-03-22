@@ -5,12 +5,10 @@
  * Created by PhpStorm.
  * User: amin
  * Date: 3/22/19
- * Time: 11:25 PM
+ * Time: 11:25 PM.
  */
-
 class Tests extends \PHPUnit\Framework\TestCase
 {
-
     /**
      * A basic test example.
      *
