@@ -135,7 +135,7 @@ Please see [contributing.md](contributing.md) for details and a todolist.
 
 - [ ] add Test 
 - [ ] add dynamic directory option 
-- [x] add dynamically pickUp model 
+- [x] add dynamically  pickUp address's model 
 - [ ] add cache option 
 
 
