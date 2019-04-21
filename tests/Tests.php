@@ -1,5 +1,7 @@
 <?php
 
+use Orchestra\Testbench\TestCase;
+
 
 /**
  * Created by PhpStorm.
@@ -7,7 +9,7 @@
  * Date: 3/22/19
  * Time: 11:25 PM.
  */
-class Tests extends \Tests\TestCase
+class Tests extends TestCase
 {
     /**
      * A basic test example.
