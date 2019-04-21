@@ -20,15 +20,5 @@ class Tests extends TestCase
     {
         $this->assertTrue(true);
     }
-    /**
-     * Create  Service provider.
-     * @return void
-     */
-    public function testCreateRepoServiceProvider()
-    {
-        Artisan::call('make:repositoryServiceProvider', [
-            'name' => 'RepositoryServiceProvider',
-        ]);
-        $this->assertTrue(true);
-    }
+
 }
