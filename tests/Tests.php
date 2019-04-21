@@ -7,7 +7,7 @@
  * Date: 3/22/19
  * Time: 11:25 PM.
  */
-class Tests extends \PHPUnit\Framework\TestCase
+class Tests extends \Tests\TestCase
 {
     /**
      * A basic test example.
