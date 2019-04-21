@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase;
+use Illuminate\Support\Facades\Artisan;
 
 /**
  * Created by PhpStorm.
@@ -20,5 +20,6 @@ class Tests extends TestCase
     {
         $this->assertTrue(true);
     }
+
 
 }
