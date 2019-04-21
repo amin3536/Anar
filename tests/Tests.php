@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase;
 
 
@@ -18,6 +19,17 @@ class Tests extends TestCase
      */
     public function testExample()
     {
+        $this->assertTrue(true);
+    }
+    /**
+     * Create  Service provider.
+     * @return void
+     */
+    public function testCreateRepoServiceProvider()
+    {
+        Artisan::call('make:repositoryServiceProvider', [
+            'name' => 'RepositoryServiceProvider',
+        ]);
         $this->assertTrue(true);
     }
 }
