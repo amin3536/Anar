@@ -94,13 +94,13 @@ class MakeRepositoryCommand extends GeneratorCommand
         if ($this->option('imp')) {
             $this->createImp();
         }
-        if (! file_exists(trim($this->rootNamespace(), '\\').'\\'.'Repositories'.'\\'.'BaseRepository.php')) {
+        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Repositories'.DIRECTORY_SEPARATOR.'BaseRepository.php')) {
             $this->createBaseRepo();
         }
-        if (! file_exists(trim($this->rootNamespace(), '\\').'\\'.'Repositories'.'\\'.'BaseRepositoryImp.php')) {
+        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Repositories'.DIRECTORY_SEPARATOR.'BaseRepositoryImp.php')) {
             $this->createBaseRepoImp();
         }
-        if (! file_exists(trim($this->rootNamespace(), '\\').'\\'.'Providers'.'\\'.'RepositoryServiceProvider.php')) {
+        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Providers'.DIRECTORY_SEPARATOR.'RepositoryServiceProvider.php')) {
             $this->createRepoServiceProvider();
         }
 
@@ -148,7 +148,7 @@ class MakeRepositoryCommand extends GeneratorCommand
     public function createRepoServiceProvider()
     {
         $this->call('make:repositoryServiceProvider', [
-            'name' => 'repositoryServiceProvider',
+            'name' => 'RepositoryServiceProvider',
         ]);
     }
 }
