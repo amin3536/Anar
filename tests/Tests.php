@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase;
 
-
 /**
  * Created by PhpStorm.
  * User: amin
