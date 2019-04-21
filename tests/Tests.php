@@ -2,7 +2,6 @@
 
 use Orchestra\Testbench\TestCase;
 
-
 /**
  * Created by PhpStorm.
  * User: amin
