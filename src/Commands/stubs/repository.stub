@@ -12,7 +12,7 @@ class DummyClass extends BaseRepository implements DummyClassImp
            */
         public function __construct(DummyModel $model)
         {
-              parent::__construct($this->model);
+              parent::__construct($model);
 
         }
 }
