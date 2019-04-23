@@ -7,7 +7,7 @@ namespace DummyNamespace;
 class DummyClass extends BaseRepository implements DummyClassImp
 {
       /**
-           * UserRepository constructor.
+           * DummyClass constructor.
            * @param DummyModel $model
            */
         public function __construct(DummyModel $model)
