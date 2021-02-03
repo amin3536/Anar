@@ -14,4 +14,6 @@ interface BaseRepositoryImp
     public function findOneByOrFail(array $data);
     public function paginateArrayResults(array $data, int $perPage = 50);
     public function delete(int $id);
+    public function findWhere($where, $columns = ['*'], $or = false);
+    public function with(array $relations);
 }
