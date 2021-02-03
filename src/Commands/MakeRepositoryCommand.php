@@ -2,8 +2,8 @@
 
 namespace amin3520\Anar\Commands;
 
-use InvalidArgumentException;
 use Illuminate\Console\GeneratorCommand;
+use InvalidArgumentException;
 
 class MakeRepositoryCommand extends GeneratorCommand
 {
