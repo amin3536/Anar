@@ -34,6 +34,11 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected $type = 'Repository';
 
+    /** model name.
+     * @var string
+     */
+    private $modelName;
+
     /**
      * Get the stub file for the generator.
      *
@@ -75,6 +80,7 @@ class MakeRepositoryCommand extends GeneratorCommand
                 $stub
             );
         }
+        $this->modelName = $this->option('m');
 
         return parent::replaceNamespace($stub, $name); //
     }
@@ -94,6 +100,11 @@ class MakeRepositoryCommand extends GeneratorCommand
         if ($this->option('imp')) {
             $this->createImp();
         }
+
+        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR.$this->modelName.'.php')) {
+            $this->createModel();
+        }
+
         if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Repositories'.DIRECTORY_SEPARATOR.'BaseRepository.php')) {
             $this->createBaseRepo();
         }
@@ -127,6 +138,13 @@ class MakeRepositoryCommand extends GeneratorCommand
     {
         $this->call('make:baseRepository', [
             'name' => 'BaseRepository',
+        ]);
+    }
+
+    protected function createModel()
+    {
+        $this->call('make:model', [
+            'name' => $this->modelName,
         ]);
     }
 
