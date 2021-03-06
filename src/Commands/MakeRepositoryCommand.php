@@ -76,11 +76,10 @@ class MakeRepositoryCommand extends GeneratorCommand
         } else {
             $stub = str_replace(
                 ['DummyModel'],
-                ['\\App\\'.$this->option('m')],
+                ['\\App\\'.'\\Models\\'.$this->option('m')],
                 $stub
             );
         }
-        $this->modelName = $this->option('m');
 
         return parent::replaceNamespace($stub, $name); //
     }
@@ -97,11 +96,12 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     public function handle()
     {
+        $this->modelName = $this->option('m');
+
         if ($this->option('imp')) {
             $this->createImp();
         }
-
-        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR.$this->modelName.'.php')) {
+        if ($this->modelName && ! class_exists($this->modelName)) {
             $this->createModel();
         }
 
@@ -143,7 +143,9 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     protected function createModel()
     {
-        $this->call('make:model', ['name' => $this->modelName]);
+        if ($this->confirm("A {$this->modelName} model does not exist. Do you want to generate it?", true)) {
+            $this->call('make:model', ['name' => $this->modelName]);
+        }
     }
 
     /**
