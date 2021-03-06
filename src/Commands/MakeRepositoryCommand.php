@@ -143,7 +143,8 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     protected function createModel()
     {
-        $this->call('make:model',[$this->modelName]);
+        $this->call('make:model', ['name' => $this->modelName ]);
+
     }
 
     /**
