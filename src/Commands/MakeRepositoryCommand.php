@@ -74,7 +74,6 @@ class MakeRepositoryCommand extends GeneratorCommand
                 $stub
             );
         } else {
-            $this->modelName = $this->option('m');
             $stub = str_replace(
                 ['DummyModel'],
                 ['\\App\\' . '\\Models\\' . $this->option('m')],
@@ -99,11 +98,12 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     public function handle()
     {
+        $this->modelName = $this->option('m');
+
         if ($this->option('imp')) {
             $this->createImp();
         }
-
-        if (!class_exists($this->modelName)) {
+        if ($this->modelName && !class_exists($this->modelName)) {
             $this->createModel();
         }
 
