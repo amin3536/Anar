@@ -46,7 +46,7 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'/stubs/repository.stub';
+        return __DIR__ . '/stubs/repository.stub';
     }
 
     /**
@@ -58,12 +58,12 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Repositories';
+        return $rootNamespace . '\Repositories';
     }
 
     protected function replaceNamespace(&$stub, $name)
     {
-        if (! $this->option('m')) {
+        if (!$this->option('m')) {
             throw new InvalidArgumentException("Model name is required.\n make:repository RepositoryClassName --m=ModelClass --imp");
         }
 
@@ -74,13 +74,15 @@ class MakeRepositoryCommand extends GeneratorCommand
                 $stub
             );
         } else {
+            $this->modelName = $this->option('m');
             $stub = str_replace(
                 ['DummyModel'],
-                ['\\App\\'.$this->option('m')],
+                ['\\App\\' . '\\Models\\' . $this->option('m')],
                 $stub
             );
+
         }
-        $this->modelName = $this->option('m');
+
 
         return parent::replaceNamespace($stub, $name); //
     }
@@ -101,17 +103,17 @@ class MakeRepositoryCommand extends GeneratorCommand
             $this->createImp();
         }
 
-        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Models'.DIRECTORY_SEPARATOR.$this->modelName.'.php')) {
+        if (!class_exists($this->modelName)) {
             $this->createModel();
         }
 
-        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Repositories'.DIRECTORY_SEPARATOR.'BaseRepository.php')) {
+        if (!file_exists(app_path() . DIRECTORY_SEPARATOR . 'Repositories' . DIRECTORY_SEPARATOR . 'BaseRepository.php')) {
             $this->createBaseRepo();
         }
-        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Repositories'.DIRECTORY_SEPARATOR.'BaseRepositoryImp.php')) {
+        if (!file_exists(app_path() . DIRECTORY_SEPARATOR . 'Repositories' . DIRECTORY_SEPARATOR . 'BaseRepositoryImp.php')) {
             $this->createBaseRepoImp();
         }
-        if (! file_exists(app_path().DIRECTORY_SEPARATOR.'Providers'.DIRECTORY_SEPARATOR.'RepositoryServiceProvider.php')) {
+        if (!file_exists(app_path() . DIRECTORY_SEPARATOR . 'Providers' . DIRECTORY_SEPARATOR . 'RepositoryServiceProvider.php')) {
             $this->createRepoServiceProvider();
         }
 
@@ -126,7 +128,7 @@ class MakeRepositoryCommand extends GeneratorCommand
     protected function createImp()
     {
         $this->call('make:RepositoryImp', [
-            'name' => $this->argument('name').'Imp',
+            'name' => $this->argument('name') . 'Imp',
         ]);
     }
 
@@ -143,7 +145,9 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     protected function createModel()
     {
-        $this->call('make:model', ['name' => $this->modelName ]);
+        if ($this->confirm("A {$this->modelName} model does not exist. Do you want to generate it?", true)) {
+            $this->call('make:model', ['name' => $this->modelName]);
+        }
 
     }
 
