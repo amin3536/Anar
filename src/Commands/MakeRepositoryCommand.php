@@ -34,7 +34,7 @@ class MakeRepositoryCommand extends GeneratorCommand
      */
     protected $type = 'Repository';
 
-    /** model name
+    /** model name.
      * @var string
      */
     private $modelName;
@@ -80,7 +80,7 @@ class MakeRepositoryCommand extends GeneratorCommand
                 $stub
             );
         }
-        $this->modelName=$this->option('m');
+        $this->modelName = $this->option('m');
 
         return parent::replaceNamespace($stub, $name); //
     }
@@ -140,7 +140,6 @@ class MakeRepositoryCommand extends GeneratorCommand
             'name' => 'BaseRepository',
         ]);
     }
-
 
     protected function createModel()
     {
