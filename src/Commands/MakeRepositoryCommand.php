@@ -64,7 +64,7 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     protected function replaceNamespace(&$stub, $name)
     {
-        if (!$this->option('model')) {
+        if (! $this->option('model')) {
             throw new InvalidArgumentException("Model name is required.\n make:repository RepositoryClassName --m=ModelClass --imp");
         }
 
@@ -77,7 +77,7 @@ class MakeRepositoryCommand extends GeneratorCommand
         } else {
             $stub = str_replace(
                 ['DummyModel'],
-                ['\\App\\' . '\\Models\\' . $this->option('m')],
+                ['\\App\\'.'\\Models\\'.$this->option('m')],
                 $stub
             );
         }
@@ -127,7 +127,7 @@ class MakeRepositoryCommand extends GeneratorCommand
     protected function createImp()
     {
         $this->call('make:RepositoryImp', [
-            'name' => $this->argument('name') . 'Imp',
+            'name' => $this->argument('name').'Imp',
         ]);
     }
 
@@ -170,7 +170,6 @@ class MakeRepositoryCommand extends GeneratorCommand
             'name' => 'RepositoryServiceProvider',
         ]);
     }
-
 
     /**
      * Get the console command options.
