@@ -4,6 +4,7 @@ namespace amin3520\Anar\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 use InvalidArgumentException;
+use Symfony\Component\Console\Input\InputOption;
 
 class MakeRepositoryCommand extends GeneratorCommand
 {
@@ -63,20 +64,20 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     protected function replaceNamespace(&$stub, $name)
     {
-        if (!$this->option('m')) {
+        if (!$this->option('model')) {
             throw new InvalidArgumentException("Model name is required.\n make:repository RepositoryClassName --m=ModelClass --imp");
         }
 
-        if (strstr($this->option('m'), '\\')) {
+        if (strstr($this->option('model'), '\\')) {
             $stub = str_replace(
                 ['DummyModel'],
-                [$this->option('m')],
+                [$this->option('model')],
                 $stub
             );
         } else {
             $stub = str_replace(
                 ['DummyModel'],
-                ['\\App\\' . 'Models\\' . $this->option('m')],
+                ['\\App\\' . 'Models\\' . $this->option('model')],
                 $stub
             );
 
@@ -98,9 +99,9 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     public function handle()
     {
-        $this->modelName = $this->option('m');
+        $this->modelName = $this->option('model');
 
-        if ($this->option('imp')) {
+        if ($this->option('implement')) {
             $this->createImp();
         }
         if ($this->modelName && !class_exists($this->modelName)) {
@@ -128,7 +129,7 @@ class MakeRepositoryCommand extends GeneratorCommand
     protected function createImp()
     {
         $this->call('make:RepositoryImp', [
-            'name' => $this->argument('name') . 'Imp',
+            'name' => $this->argument('name') . 'implement',
         ]);
     }
 
@@ -145,7 +146,7 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     protected function createModel()
     {
-        if ($this->confirm("A {$this->modelName} model does not exist. Do you want to generate it?", true)) {
+        if ($this->getOptions('generate') || $this->confirm("A {$this->modelName} model does not exist. Do you want to generate it?", true)) {
             $this->call('make:model', ['name' => $this->modelName]);
         }
 
@@ -171,5 +172,22 @@ class MakeRepositoryCommand extends GeneratorCommand
         $this->call('make:repositoryServiceProvider', [
             'name' => 'RepositoryServiceProvider',
         ]);
+    }
+
+
+    /**
+     * Get the console command options.
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return [
+
+            ['implement', 'imp', InputOption::VALUE_OPTIONAL, 'Generate repository interface'],
+            ['model', 'm', InputOption::VALUE_REQUIRED, 'a model that inject in repo'],
+            ['generate', 'g', InputOption::VALUE_OPTIONAL, 'Generate a model class.'],
+
+        ];
     }
 }
