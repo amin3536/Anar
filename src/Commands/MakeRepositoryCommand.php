@@ -76,7 +76,7 @@ class MakeRepositoryCommand extends GeneratorCommand
         } else {
             $stub = str_replace(
                 ['DummyModel'],
-                ['\\App\\'.'\\Models\\'.$this->option('m')],
+                ['\\App\\'.'Models\\'.$this->option('m')],
                 $stub
             );
         }
