@@ -12,7 +12,7 @@
     "homepage": "https://github.com/amin3520/anar",
     "keywords": ["Laravel", "Anar","repository"],
     "require": {
-        "illuminate/support": "^8.*|^9.*|^10.*"
+        "illuminate/support": "^8.0|^9.0|^10.0"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
