@@ -52,8 +52,7 @@ class MakeRepositoryCommand extends GeneratorCommand
     /**
      * Get the default namespace for the class.
      *
-     * @param string $rootNamespace
-     *
+     * @param  string  $rootNamespace
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
@@ -132,6 +131,7 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     /**
      * Create  BaseRepository.
+     *
      * @return void
      */
     protected function createBaseRepo()
@@ -150,6 +150,7 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     /**
      * Create  BaseRepositoryImp.
+     *
      * @return void
      */
     public function createBaseRepoImp()
@@ -161,6 +162,7 @@ class MakeRepositoryCommand extends GeneratorCommand
 
     /**
      * Create  Service provider.
+     *
      * @return void
      */
     public function createRepoServiceProvider()
