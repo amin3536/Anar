@@ -68,7 +68,7 @@ class BaseRepository implements BaseRepositoryImp
      */
     public function findBy(array $data)
     {
-        return $this->model->where($data)->all();
+        return $this->model->where($data)->get();
     }
     /**
      * @param array $data
@@ -128,7 +128,6 @@ class BaseRepository implements BaseRepositoryImp
      */
     public function findWhere($where, $columns = ['*'], $or = false)
     {
-        $this->applyCriteria();
         $model = $this->model;
         foreach ($where as $field => $value) {
             if ($value instanceof \Closure) {
