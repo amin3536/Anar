@@ -100,7 +100,7 @@ class MakeRepositoryCommand extends GeneratorCommand
         if ($this->option('imp')) {
             $this->createImp();
         }
-        if ($this->modelName && ! class_exists($this->modelName)) {
+        if ($this->modelName && !class_exists(strpos($this->modelName, 'App\Models') === 0 ? $this->modelName : 'App\Models\\' . $this->modelName)) {
             $this->createModel();
         }
 
